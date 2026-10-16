@@ -3,24 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Parina Chica en Realidad Aumentada</title>
+  <title>Parina Chica - Reserva de Biosfera</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
   <style>
-    body { margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; }
-    model-viewer { width: 100%; height: 100%; background-color: #f4f4f4; }
+    * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; background: #f4f4f4; }
+    
+    model-viewer { width: 100%; height: 100%; }
+
+    /* Tarjeta flotante con información */
+    .info-card {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 400px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 16px 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      backdrop-filter: blur(8px);
+      text-align: center;
+    }
+
+    .info-card h2 { margin: 0 0 6px 0; font-size: 18px; color: #d32f2f; }
+    .info-card h3 { margin: 0 0 10px 0; font-size: 13px; color: #666; font-style: italic; }
+    .info-card p { margin: 0; font-size: 13px; color: #444; line-height: 1.4; }
+
+    /* Botón de Realidad Aumentada */
+    #ar-button {
+      background: #d32f2f;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 14px;
+      margin-top: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
+    }
   </style>
 </head>
 <body>
 
   <model-viewer 
     src="https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/models/gltf/Flamingo.glb" 
-    alt="Parina Chica 3D" 
+    alt="Parina Chica en 3D" 
     ar 
     ar-modes="webxr scene-viewer quick-look" 
     camera-controls 
     autoplay 
     auto-rotate>
+    
+    <button slot="ar-button" id="ar-button">
+      👋 Ver en tu espacio (AR)
+    </button>
+
   </model-viewer>
+
+  <div class="info-card">
+    <h2>Parina Chica</h2>
+    <h3>Phoenicoparrus jamesi</h3>
+    <p>Especie vulnerable de flamenco nativa de los salares y lagunas de altura de la Puna. Se distingue por su pico amarillo brillante con punta negra y sus patas rojizas sin hálux (dedo posterior).</p>
+  </div>
 
 </body>
 </html>
