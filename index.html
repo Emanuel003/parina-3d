@@ -7,29 +7,40 @@
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
   <style>
     * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; background: #f4f4f4; }
+    body { margin: 0; padding: 0; width: 100vw; height: 100vh; overflow: hidden; background: #eef2f5; }
     
     model-viewer { width: 100%; height: 100%; }
 
-    /* Tarjeta flotante con información */
+    /* Tarjeta flotante con información detallada */
     .info-card {
       position: absolute;
-      bottom: 20px;
+      bottom: 15px;
       left: 50%;
       transform: translateX(-50%);
-      width: 90%;
-      max-width: 400px;
-      background: rgba(255, 255, 255, 0.95);
+      width: 92%;
+      max-width: 420px;
+      background: rgba(255, 255, 255, 0.96);
       padding: 16px 20px;
       border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
       backdrop-filter: blur(8px);
-      text-align: center;
+      max-height: 40vh;
+      overflow-y: auto;
     }
 
-    .info-card h2 { margin: 0 0 6px 0; font-size: 18px; color: #d32f2f; }
-    .info-card h3 { margin: 0 0 10px 0; font-size: 13px; color: #666; font-style: italic; }
-    .info-card p { margin: 0; font-size: 13px; color: #444; line-height: 1.4; }
+    .info-card h2 { margin: 0 0 2px 0; font-size: 19px; color: #d32f2f; }
+    .info-card h3 { margin: 0 0 10px 0; font-size: 13px; color: #555; font-style: italic; }
+    
+    .traits-list {
+      text-align: left;
+      font-size: 12px;
+      color: #333;
+      line-height: 1.5;
+      padding-left: 15px;
+      margin: 8px 0 0 0;
+    }
+
+    .traits-list li { margin-bottom: 4px; }
 
     /* Botón de Realidad Aumentada */
     #ar-button {
@@ -39,10 +50,11 @@
       padding: 10px 20px;
       border-radius: 20px;
       font-weight: bold;
-      font-size: 14px;
-      margin-top: 12px;
+      font-size: 13px;
+      margin-top: 10px;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(211, 47, 47, 0.3);
+      box-shadow: 0 4px 12px rgba(211, 47, 47, 0.35);
+      width: 100%;
     }
   </style>
 </head>
@@ -58,7 +70,7 @@
     auto-rotate>
     
     <button slot="ar-button" id="ar-button">
-      👋 Ver en tu espacio (AR)
+      👋 Ver en Realidad Aumentada (AR)
     </button>
 
   </model-viewer>
@@ -66,7 +78,15 @@
   <div class="info-card">
     <h2>Parina Chica</h2>
     <h3>Phoenicoparrus jamesi</h3>
-    <p>Especie vulnerable de flamenco nativa de los salares y lagunas de altura de la Puna. Se distingue por su pico amarillo brillante con punta negra y sus patas rojizas sin hálux (dedo posterior).</p>
+    <p style="font-size: 12px; margin: 0; color: #444;">Especie vulnerable nativa de las lagunas salobres de altura en la Puna. Es el más pequeño de los tres flamencos andinos (90 cm approx).</p>
+    
+    <ul class="traits-list">
+      <li><b>Pico:</b> Corto, amarillo brillante en la base con el tercio final negro.</li>
+      <li><b>Plumaje:</b> Blanco-rosado pálido con trazos carmín/escarlata en cuello, pecho y lomo.</li>
+      <li><b>Rostro:</b> Franja de piel desnuda rojo encendido en la zona loral.</li>
+      <li><b>Patas:</b> Rojo ladrillo, sin dedo posterior (hallux).</li>
+      <li><b>Alimentación:</b> Filtra microalgas y diatomeas del barro salobre.</li>
+    </ul>
   </div>
 
 </body>
